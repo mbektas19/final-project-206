@@ -23,12 +23,14 @@ for i in current_playlist['tracks']['items']:
     songs.append((i['track']['name'], i['track']['duration_ms']/60000))
     dates.append((i['track']['name'], i['track']['album']['release_date'][:4]))
 
-cur.execute('CREATE TABLE IF NOT EXISTS Lengths (name TEXT, length REAL)')
-for x in songs[80:]:   
+cur.execute('CREATE TABLE IF NOT EXISTS Lengths (name TEXT PRIMARY KEY, length REAL)')
+for x in songs[:80]:   
     cur.execute('INSERT INTO Lengths (name, length) VALUES (?, ?)', (x[0], x[1]))
 
-cur.execute('CREATE TABLE IF NOT EXISTS Years (name TEXT, year INTEGER)')
-for q in dates[80:]:
+cur.execute('CREATE TABLE IF NOT EXISTS Years (name TEXT PRIMARY KEY, year INTEGER)')
+for q in dates[:80]
     cur.execute('INSERT INTO Years (name, year) VALUES (?,?)', (q[0],q[1]))
+
+
 conn.commit()
 cur.close()
