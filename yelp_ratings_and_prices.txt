@@ -108,3 +108,14 @@ Wine Bars 3.0
 Sandwiches 0.5
 Pizza 0.6666666666666666
 Burgers 1.0
+
+Top Eight Restaurant Categories in AA
+
+Korean: 9
+Coffee & Tea: 8
+American (New): 8
+Indian: 6
+Pubs: 5
+Mediterranean: 5
+Italian: 4
+Seafood: 4
