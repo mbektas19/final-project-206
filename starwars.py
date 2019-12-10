@@ -31,6 +31,7 @@ for i in data['results']:
     except:
         None
 
+cur.execute()
 
 conn.commit()
 cur.close()
