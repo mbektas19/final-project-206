@@ -3,6 +3,9 @@ from spotipy.oauth2 import SpotifyClientCredentials
 import sqlite3
 import os
 
+####################
+# Change file name #
+####################
 db_name = 'explicity.db'
 path = os.path.dirname(os.path.abspath(__file__))
 conn = sqlite3.connect(path+'/'+db_name)
