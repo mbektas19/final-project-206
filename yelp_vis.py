@@ -47,17 +47,34 @@ for i in category_counts:
     except:
         None
 
-f = open('yelp_ratings_and_prices.txt', 'w')
+top_eight = {}
+top_eight_keys = sorted(category_counts, key=lambda x:category_counts[x], reverse = True)[:8]
+for i in top_eight_keys:
+    top_eight[i] = category_counts[i]
 
-f.write('Average Ratings for AA Restaurants' + '\n' + '\n')
-for i in average_ratings:
-    f.write(i + " " + str(average_ratings[i]) + '\n')
-f.write("\n" + 'Average Prices for AA Restaurants' + '\n' + '\n')
-for i in average_prices:
-    f.write(i + " " + str(average_prices[i]) + '\n')
-f.close()
+# f = open('yelp_ratings_and_prices.txt', 'w')
+
+# f.write('Average Ratings for AA Restaurants' + '\n' + '\n')
+# for i in average_ratings:
+#     f.write(i + " " + str(average_ratings[i]) + '\n')
+# f.write("\n" + 'Average Prices for AA Restaurants' + '\n' + '\n')
+# for i in average_prices:
+#     f.write(i + " " + str(average_prices[i]) + '\n')
+# f.write('\n' + "Top Eight Restaurant Categories in AA" + '\n' + '\n')
+# for i in top_eight:
+#     f.write(i + ': ' top_eight[i] + '\n')
+# f.close()
 
 #plot 1
+heights = np.array(list(top_eight.values()))
+ticks = np.arange(len(top_eight))
+labels = np.array(list(top_eight.keys()))
+
+plt.bar(ticks, heights)
+plt.xticks(ticks, labels)
+plt.title('Bar Graph of Most Common Cusines in Ann Arbor')
+plt.show()
+
 
 categories = []
 totals = []
@@ -74,7 +91,7 @@ for i in category_counts:
         None
 
 
-#PLOT 1
+#PLOT 2
 
 x = []
 y = []
