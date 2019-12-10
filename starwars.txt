@@ -1,1 +1,5 @@
+Averages of Star Wars Starship Data:
 
+Average Cost: 38527337353.76923 credits
+Average Length: 4248.541428571429 m
+Average Speed: 1369.642857142857 kph
