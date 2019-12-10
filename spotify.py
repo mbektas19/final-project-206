@@ -1,4 +1,4 @@
-impor spotipy as sp
+import spotipy as sp
 from spotipy.oauth2 import SpotifyClientCredentials
 import sqlite3
 import os
