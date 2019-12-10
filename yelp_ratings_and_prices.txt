@@ -1,1 +1,110 @@
+Average Ratings for AA Restaurants
 
+Cuban 4.5
+Delis 4.166666666666667
+Italian 3.625
+Vegan 4.25
+Ice Cream & Frozen Yogurt 4.5
+Bars 4.0
+Pubs 4.1
+Tapas Bars 4.0
+American (Traditional) 3.6666666666666665
+Asian Fusion 4.0
+Noodles 4.0
+Breakfast & Brunch 4.333333333333333
+Seafood 3.75
+Macarons 4.5
+Salad 4.5
+Coffee & Tea 4.4375
+Mexican 4.166666666666667
+Cafes 4.25
+Meat Shops 4.5
+Indian 3.9166666666666665
+Korean 4.0
+Parks 4.5
+American (New) 4.0
+Mediterranean 4.3
+Steakhouses 3.8333333333333335
+Poke 4.5
+Middle Eastern 4.0
+Sushi Bars 3.625
+French 3.75
+Latin American 4.5
+Breweries 3.5
+Bakeries 4.5
+Coffee Roasteries 4.5
+Desserts 4.0
+Donuts 4.0
+Himalayan/Nepalese 4.5
+Japanese 3.75
+Barbeque 4.5
+Diners 3.8333333333333335
+Chinese 4.0
+Vegetarian 4.0
+German 4.0
+Beer Bar 3.5
+Wine Bars 3.5
+Botanical Gardens 4.5
+Local Flavor 5.0
+Sandwiches 4.0
+Pizza 3.8333333333333335
+Burgers 3.5
+Ethiopian 3.5
+Vietnamese 4.0
+Caribbean 4.0
+Irish 3.5
+Cheese Shops 4.5
+Bubble Tea 4.5
+Dive Bars 4.0
+Gluten-Free 4.5
+Smokehouse 4.5
+Gay Bars 3.5
+
+Average Prices for AA Restaurants
+
+Cuban 2.0
+Delis 1.6666666666666667
+Italian 1.25
+Vegan 2.0
+Ice Cream & Frozen Yogurt 1.0
+Bars 1.3333333333333333
+Pubs 1.6
+Tapas Bars 2.0
+American (Traditional) 2.0
+Asian Fusion 3.0
+Noodles 2.0
+Breakfast & Brunch 2.0
+Seafood 2.5
+Macarons 2.0
+Salad 1.0
+Coffee & Tea 1.75
+Mexican 1.3333333333333333
+Cafes 2.0
+Meat Shops 2.0
+Indian 1.5
+Korean 1.2222222222222223
+American (New) 1.875
+Mediterranean 0.4
+Steakhouses 2.0
+Poke 2.0
+Middle Eastern 1.0
+Sushi Bars 1.5
+French 2.0
+Latin American 1.0
+Breweries 2.0
+Bakeries 1.0
+Coffee Roasteries 2.0
+Desserts 1.75
+Donuts 1.0
+Himalayan/Nepalese 2.0
+Japanese 0.5
+Barbeque 2.0
+Diners 1.0
+Chinese 1.0
+Vegetarian 1.5
+German 2.0
+Beer Bar 2.0
+Wine Bars 3.0
+Sandwiches 0.5
+Pizza 0.6666666666666666
+Burgers 1.0

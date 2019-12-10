@@ -47,19 +47,22 @@ for i in category_counts:
     except:
         None
 
-# f = open('yelp_ratings_and_prices.txt', 'w')
+f = open('yelp_ratings_and_prices.txt', 'w')
 
-# for i in average_ratings:
-#     f.write(i + " " + str(average_ratings[i]) + '\n')
-# for i in average_prices:
-#     f.write(i + " " + str(average_prices[i]) + '\n')
-# f.close()
+f.write('Average Ratings for AA Restaurants' + '\n' + '\n')
+for i in average_ratings:
+    f.write(i + " " + str(average_ratings[i]) + '\n')
+f.write("\n" + 'Average Prices for AA Restaurants' + '\n' + '\n')
+for i in average_prices:
+    f.write(i + " " + str(average_prices[i]) + '\n')
+f.close()
 
 #plot 1
 
 categories = []
 totals = []
 ratings = []
+graph_category_count = []
 
 for i in category_counts:
     categories.append(i)
@@ -69,11 +72,9 @@ for i in category_counts:
         tuples.append((i, average_prices[i], average_ratings[i]))
     except:
         None
-# plt.bar(range(59), totals)
-# plt.xticks(y_pos, categories)
-# plt.show()
 
-#PLOT 2
+
+#PLOT 1
 
 x = []
 y = []
@@ -81,7 +82,7 @@ for i in tuples:
     x.append(i[2])
     y.append(i[1])
 plt.scatter(x,y,c='#8a66d9')
-plt.title('Scatterplot of Price vs. Rating in Ann Arbor Restaurants')
+plt.title('Scatterplot of Average Price vs. Average Rating in Ann Arbor Restaurants')
 plt.xlabel('Average Rating per Category')
 plt.ylabel('Average Price ($-\$$$)')
 plt.show()
