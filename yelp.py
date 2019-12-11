@@ -27,7 +27,7 @@ for i in data['businesses']:
     try:
         cur.execute('INSERT INTO Ratings (Name, Category, Rating) VALUES (?,?,?)', (name, category, rating))
     except:
-        None
+        print('Restaurant already in database.')
 
 cur.execute('CREATE TABLE IF NOT EXISTS Prices (Name TEXT PRIMARY KEY UNIQUE, Price TEXT)')
 
@@ -36,11 +36,11 @@ for x in data['businesses']:
     try:
         price = x['price']
     except:
-        price = None
+        print('Price of restaurant not available.')
     try:
         cur.execute('INSERT INTO Prices (Name, Price) VALUES (?,?)', (name, price))
     except:
-        None
+        print('Restaurant already in database')
 
 conn.commit()
 cur.close()

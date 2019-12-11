@@ -3,9 +3,7 @@ from spotipy.oauth2 import SpotifyClientCredentials
 import sqlite3
 import os
 
-####################
-# Change file name #
-####################
+
 db_name = 'spotify.db'
 path = os.path.dirname(os.path.abspath(__file__))
 conn = sqlite3.connect(path+'/'+db_name)
@@ -32,17 +30,25 @@ for i in current_playlist['tracks']['items']:
 
 
 cur.execute('CREATE TABLE IF NOT EXISTS Lengths (Name TEXT PRIMARY KEY UNIQUE, Length REAL)')
-for x in songs[80:]:   
-     cur.execute('INSERT INTO Lengths (Name, Length) VALUES (?, ?)', (x[0], x[1]))
+for x in songs[80:]:
+    try:
+        cur.execute('INSERT INTO Lengths (Name, Length) VALUES (?, ?)', (x[0], x[1]))
+    except:
+        print('Song already in database')
 
 cur.execute('CREATE TABLE IF NOT EXISTS Years (Name TEXT PRIMARY KEY UNIQUE, Year INTEGER)')
 for q in dates[80:]:
-    cur.execute('INSERT INTO Years (Name, Year) VALUES (?,?)', (q[0],q[1]))
+    try:
+        cur.execute('INSERT INTO Years (Name, Year) VALUES (?,?)', (q[0],q[1]))
+    except:
+        print('Song already in database')
 
-#scobut = spot.user_playlist('bradgurdlinger', '4ZUSEugILCt0HFIv48UIXF')
 cur.execute('CREATE TABLE IF NOT EXISTS Explicity (Name TEXT UNIQUE, Explicit INTEGER)')
 for i in explicit[80:]:
-    cur.execute('INSERT INTO Explicity (Name, Explicit) VALUES (?,?)', (i[0], i[1]))
+    try:
+        cur.execute('INSERT INTO Explicity (Name, Explicit) VALUES (?,?)', (i[0], i[1]))
+    except:
+        print('Song already in database')
 
 conn.commit()
 cur.close()

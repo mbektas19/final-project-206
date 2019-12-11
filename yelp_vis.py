@@ -98,8 +98,13 @@ y = []
 for i in tuples:
     x.append(i[2])
     y.append(i[1])
+print(tuples)
 plt.scatter(x,y,c='#8a66d9')
 plt.title('Scatterplot of Average Price vs. Average Rating in Ann Arbor Restaurants')
 plt.xlabel('Average Rating per Category')
 plt.ylabel('Average Price ($-\$$$)')
+plt.annotate('Local Flavor', (5, 3))
+plt.annotate('Wine Bars', (3.5, 3))
+plt.annotate('Salad', (4.5, 1))
+plt.annotate('Burgers', (3.5, 1))
 plt.show()

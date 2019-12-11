@@ -12,26 +12,29 @@ cur.execute('CREATE TABLE IF NOT EXISTS Costs (Name TEXT PRIMARY KEY UNIQUE, Cos
 cur.execute('CREATE TABLE IF NOT EXISTS Speeds (Name TEXT PRIMARY KEY UNIQUE, Speed TEXT, Hyperdrive TEXT)')
 
 url = 'https://swapi.co/api/starships/'
-params = {'page':4}
+params = {'page':5}
 
-data = json.loads(requests.get(url, params = params).text)
+try:
+    req = requests.get(url, params = params)
+    data = json.loads(req.text)['results']
 
-for i in data['results']:
-    name = i['name']
-    cost = i['cost_in_credits']
-    length = i['length']
-    hyperdrive_rating = i['hyperdrive_rating']
-    speed = i['max_atmosphering_speed']
-    try:
-        cur.execute('INSERT INTO Costs (Name, Cost, Length) VALUES (?,?,?)', (name, cost, length))
-    except:
-        None
-    try:
-        cur.execute('INSERT INTO Speeds (Name, Speed, Hyperdrive) VALUES (?,?,?)', (name, speed, hyperdrive_rating))
-    except:
-        None
+    for i in data:
+        name = i['name']
+        cost = i['cost_in_credits']
+        length = i['length']
+        hyperdrive_rating = i['hyperdrive_rating']
+        speed = i['max_atmosphering_speed']
+        try:
+            cur.execute('INSERT INTO Costs (Name, Cost, Length) VALUES (?,?,?)', (name, cost, length))
+        except:
+            print('Ship already in database')
+        try:
+            cur.execute('INSERT INTO Speeds (Name, Speed, Hyperdrive) VALUES (?,?,?)', (name, speed, hyperdrive_rating))
+        except:
+            print('Ship already in database')
+except:
+    print('No more ships in database')
 
-cur.execute()
 
 conn.commit()
 cur.close()
