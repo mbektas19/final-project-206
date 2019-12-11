@@ -6,10 +6,11 @@ import os
 ####################
 # Change file name #
 ####################
-db_name = 'explicity.db'
+db_name = 'spotify.db'
 path = os.path.dirname(os.path.abspath(__file__))
 conn = sqlite3.connect(path+'/'+db_name)
 cur = conn.cursor()
+
 
 client_id='435610e6bc6741e8b60f11f6425b8397'
 client_secret='3884178bbf7d4004badd984c561543f2'
@@ -21,31 +22,27 @@ current_playlist = spot.user_playlist('bradgurdlinger', '6wyXbq1Zf8iF3OQWUAE0rS'
 
 songs = []
 dates = []
+explicit = []
 
 for i in current_playlist['tracks']['items']:
     songs.append((i['track']['name'], i['track']['duration_ms']/60000))
     dates.append((i['track']['name'], i['track']['album']['release_date'][:4]))
+    explicit.append((i['track']['name'], i['track']['explicit']))
 
-# ONLY EXECUTE FOR PLAYLIST_DATA.DB
-cur.execute('CREATE TABLE IF NOT EXISTS Lengths (name TEXT PRIMARY KEY UNIQUE, length REAL)')
-for x in songs[:80]:   
-     cur.execute('INSERT INTO Lengths (name, length) VALUES (?, ?)', (x[0], x[1]))
 
-cur.execute('CREATE TABLE IF NOT EXISTS Years (name TEXT PRIMARY KEY UNIQUE, year INTEGER)')
-for q in dates[:80]:
-    cur.execute('INSERT INTO Years (name, year) VALUES (?,?)', (q[0],q[1]))
 
-# ONLY EXECUTE IN EXPLICITY.DB
-scobut = spot.user_playlist('bradgurdlinger', '4ZUSEugILCt0HFIv48UIXF')
+cur.execute('CREATE TABLE IF NOT EXISTS Lengths (Name TEXT PRIMARY KEY UNIQUE, Length REAL)')
+for x in songs[80:]:   
+     cur.execute('INSERT INTO Lengths (Name, Length) VALUES (?, ?)', (x[0], x[1]))
 
-cur.execute('CREATE TABLE IF NOT EXISTS scoBUT (name TEXT UNIQUE, explicit INTEGER)')
+cur.execute('CREATE TABLE IF NOT EXISTS Years (Name TEXT PRIMARY KEY UNIQUE, Year INTEGER)')
+for q in dates[80:]:
+    cur.execute('INSERT INTO Years (Name, Year) VALUES (?,?)', (q[0],q[1]))
 
-songs2 = []
-for x in scobut['tracks']['items'][40:]:
-    songs2.append((x['track']['name'], x['track']['explicit']))
-
-for w in songs2:
-    cur.execute('INSERT INTO scoBUT (name, explicit) VALUES (?,?)', (w[0], w[1]))
+#scobut = spot.user_playlist('bradgurdlinger', '4ZUSEugILCt0HFIv48UIXF')
+cur.execute('CREATE TABLE IF NOT EXISTS Explicity (Name TEXT UNIQUE, Explicit INTEGER)')
+for i in explicit[80:]:
+    cur.execute('INSERT INTO Explicity (Name, Explicit) VALUES (?,?)', (i[0], i[1]))
 
 conn.commit()
 cur.close()
