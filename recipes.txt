@@ -1,0 +1,12 @@
+Most Common Ingredients in Chicken Dishes:
+
+black pepper: 42
+celery: 31
+garlic: 26
+butter: 23
+carrot: 21
+chicken broth: 21
+salt: 18
+flour: 16
+onions: 15
+olive oil: 14
