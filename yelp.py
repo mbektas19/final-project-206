@@ -3,7 +3,7 @@ import json
 import sqlite3
 import os
 
-db_name = 'yelp.db'
+db_name = 'final.db'
 path = os.path.dirname(os.path.abspath(__file__))
 conn = sqlite3.connect(path+'/'+db_name)
 cur = conn.cursor()
@@ -12,7 +12,7 @@ cur = conn.cursor()
 # api returns 20 results
 api_key = 'OPUebJ4zTSF3JNrO0QGxfpOZve7u5LvWpOe5hDCEwfW3q-PwTHGAWD-ad6ySoyIjmwFh7vAINGu475mwGkQeXGy1oY-Ev0IIuNhZRMfeI_7-gS79xtTMejSiYQfvXXYx'
 headers = {'Authorization': 'Bearer %s' % api_key}
-params = {'location':'Ann Arbor', 'offset':120, 'limit': 20}
+params = {'location':'Ann Arbor', 'offset':140, 'limit': 20}
 url='https://api.yelp.com/v3/businesses/search'
 
 res = requests.get(url, headers = headers, params = params)

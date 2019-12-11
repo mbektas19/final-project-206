@@ -4,7 +4,7 @@ import sqlite3
 import os
 
 
-db_name = 'spotify.db'
+db_name = 'final.db'
 path = os.path.dirname(os.path.abspath(__file__))
 conn = sqlite3.connect(path+'/'+db_name)
 cur = conn.cursor()

@@ -3,7 +3,7 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 
-db_name = 'yelp.db'
+db_name = 'final.db'
 path = os.path.dirname(os.path.abspath(__file__))
 conn = sqlite3.connect(path+'/'+db_name)
 cur = conn.cursor()
@@ -57,7 +57,7 @@ f = open('yelp_ratings_and_prices.txt', 'w')
 f.write('Average Ratings for AA Restaurants' + '\n' + '\n')
 for i in average_ratings:
     f.write(i + " " + str(average_ratings[i]) + '\n')
-f.write("\n" + 'Average Prices for AA Restaurants' + '\n' + '\n')
+f.write("\n" + 'Average Prices for AA Restaurants ($-$$$)' + '\n' + '\n')
 for i in average_prices:
     f.write(i + " " + str(average_prices[i]) + '\n')
 f.write('\n' + "Top Eight Restaurant Categories in AA" + '\n' + '\n')
@@ -98,7 +98,7 @@ y = []
 for i in tuples:
     x.append(i[2])
     y.append(i[1])
-print(tuples)
+
 plt.scatter(x,y,c='#8a66d9')
 plt.title('Scatterplot of Average Price vs. Average Rating in Ann Arbor Restaurants')
 plt.xlabel('Average Rating per Category')
