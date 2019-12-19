@@ -8,6 +8,8 @@ path = os.path.dirname(os.path.abspath(__file__))
 conn = sqlite3.connect(path+'/'+db_name)
 cur = conn.cursor()
 
+#Calculating counts of each different restaurant category as well as price and rating totals
+
 category_counts = {}
 rating_totals = {}
 price_totals = {}
@@ -37,6 +39,8 @@ for i in joined_db:
         except:
             None
 
+# Calculating the average price and rating for each category
+
 average_ratings = {}
 average_prices = {}
 for i in category_counts:
@@ -47,12 +51,19 @@ for i in category_counts:
     except:
         None
 
+# Finding the top 8 categories by count of restaurants
+
 top_eight = {}
 top_eight_keys = sorted(category_counts, key=lambda x:category_counts[x], reverse = True)[:8]
 for i in top_eight_keys:
     top_eight[i] = category_counts[i]
 
-f = open('yelp_ratings_and_prices.txt', 'w')
+# Writing calculations to file
+
+filename = 'restaurants.txt'
+source_dir = os.path.dirname(__file__) #<-- directory name
+full_path = os.path.join(source_dir, filename)
+f = open(full_path, 'w')
 
 f.write('Average Ratings for AA Restaurants' + '\n' + '\n')
 for i in average_ratings:
@@ -62,10 +73,11 @@ for i in average_prices:
     f.write(i + " " + str(average_prices[i]) + '\n')
 f.write('\n' + "Top Eight Restaurant Categories in AA" + '\n' + '\n')
 for i in top_eight:
-    f.write(i + ': ' + str(top_eight[i]) + '\n')
+    f.write(i + ': ' + str(top_eight[i]) + '\n' + '\n')
 f.close()
 
-#plot 1
+#plot 1: bar chart of top 8 categories
+
 heights = np.array(list(top_eight.values()))
 ticks = np.arange(len(top_eight))
 labels = np.array(list(top_eight.keys()))
@@ -75,6 +87,7 @@ plt.xticks(ticks, labels)
 plt.title('Bar Graph of Most Common Cusines in Ann Arbor')
 plt.show()
 
+# Getting average prices and ratings into lists for the scatterplot
 
 categories = []
 totals = []
@@ -91,7 +104,7 @@ for i in category_counts:
         None
 
 
-#PLOT 2
+#PLOT 2: Scatterplot of Average Price vs Average Rating
 
 x = []
 y = []
