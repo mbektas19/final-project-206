@@ -1,0 +1,6 @@
+Calculations for Grill & Chill Playlist Data
+
+Average Song Release Year: 1995.71
+Average Song Length: 4.075015833333336 min
+Percent of Songs that are explicit: 3.0
+
